@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-lg-6" ng-controller="JobsCtrl">
+        <rd-widget>
+            <rd-widget-header icon="fa-tasks" title="Jobs">
+                <a href="#">Manage</a>
+            </rd-widget-header>
+            <rd-widget-body classes="medium no-padding">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="j in jobs">
+                                <td>{{job.lastStartTxt}}运行</td>
+                                <td>{{job.lastEndTxt}}结束</td>
+                                <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}，{{job.currentpage}}/{{job.maxpage}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </rd-widget-body>
+            <rd-widget-footer>
+                <ul class="pagination pagination-sm pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </rd-widget-footer>
+        </rd-widget>
+    </div>
+</div>

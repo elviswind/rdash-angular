@@ -13,7 +13,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('index', {
                 url: '/',
-                templateUrl: 'templates/dashboard.html'
+                templateUrl: 'templates/jobs.html'
             })
             .state('tables', {
                 url: '/tables',

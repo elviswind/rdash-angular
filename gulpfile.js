@@ -19,6 +19,8 @@ var paths = {
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
 };
 
+var copyPath = "../appid9c3cnu2cv7/ssite/public/"
+
 /**
  * Handle bower components from index
  */
@@ -28,7 +30,8 @@ gulp.task('usemin', function() {
             js: [minifyJs(), 'concat'],
             css: [minifyCss({keepSpecialComments: 0}), 'concat'],
         }))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/'))
+		.pipe(gulp.dest(copyPath));
 });
 
 /**
@@ -41,7 +44,8 @@ gulp.task('copy-bower_fonts', function() {
         .pipe(rename({
             dirname: '/fonts'
         }))
-        .pipe(gulp.dest('dist/lib'));
+        .pipe(gulp.dest('dist/lib'))
+		.pipe(gulp.dest(copyPath + 'lib'));
 });
 
 /**
@@ -51,26 +55,30 @@ gulp.task('build-custom', ['custom-images', 'custom-js', 'custom-less', 'custom-
 
 gulp.task('custom-images', function() {
     return gulp.src(paths.images)
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist/img'))
+		.pipe(gulp.dest(copyPath + "img"));
 });
 
 gulp.task('custom-js', function() {
     return gulp.src(paths.scripts)
         .pipe(minifyJs())
         .pipe(concat('dashboard.min.js'))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('dist/js'))
+		.pipe(gulp.dest(copyPath + "js"));
 });
 
 gulp.task('custom-less', function() {
     return gulp.src(paths.styles)
         .pipe(less())
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/css'))
+		.pipe(gulp.dest(copyPath + "css"));
 });
 
 gulp.task('custom-templates', function() {
     return gulp.src(paths.templates)
         .pipe(minifyHTML())
-        .pipe(gulp.dest('dist/templates'));
+        .pipe(gulp.dest('dist/templates'))
+		.pipe(gulp.dest(copyPath + "templates"));
 });
 
 /**

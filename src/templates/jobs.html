@@ -1,32 +1,31 @@
 <div class="row">
-    <div class="col-lg-6" ng-controller="JobsCtrl">
-        <rd-widget>
-            <rd-widget-header icon="fa-tasks" title="Jobs">
-                <a href="#">Manage</a>
-            </rd-widget-header>
-            <rd-widget-body classes="medium no-padding">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <tbody>
-                            <tr ng-repeat="j in jobs">
-                                <td>{{job.lastStartTxt}}运行</td>
-                                <td>{{job.lastEndTxt}}结束</td>
-                                <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}，{{job.currentpage}}/{{job.maxpage}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </rd-widget-body>
-            <rd-widget-footer>
-                <ul class="pagination pagination-sm pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
-                <div class="clearfix"></div>
-            </rd-widget-footer>
-        </rd-widget>
+    <div class="col-lg-12" ng-controller="JobsCtrl">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="job in jobs">
+                        <td>{{job.name}}</td>
+                        <td>{{job.lastStartTxt}}运行</td>
+                        <td>{{job.lastEndTxt}}结束 </td>
+                        <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}，{{job.currentpage}}/{{job.maxpage}}</td>
+                        <td>
+                            <button class="btn btn-xs btn-primary {{job.activeClass}}" ng-click="activejob(job)">{{job.activeText}}</button>
+                            <div class="btn-group" uib-dropdown is-open="status.isopen">
+                                <button id="single-button" type="button" class="btn btn-xs btn-default" uib-dropdown-toggle ng-disabled="disabled">
+                                    操作
+                                    <span class="caret"></span>
+                                </button>
+                                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                    <li role="menuitem"><a href="#" ng-click="editjob(job.content)">编辑</a></li>
+                                    <li role="menuitem"><a href="#" ng-click="startjob(job.name)">运行</a></li>
+                                    <li role="menuitem"><a href="#" ng-click="resetjob(job.name)">重置</a></li>
+                                    <li role="menuitem"><a href="#" ng-click="deletejob(job.name)">删除</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

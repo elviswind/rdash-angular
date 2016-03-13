@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     rename = require('gulp-rename'),
     minifyHTML = require('gulp-htmlmin');
+	fs = require('fs');
 
 var paths = {
     scripts: 'src/js/**/*.*',
@@ -20,6 +21,7 @@ var paths = {
 };
 
 var copyPath = "../appid9c3cnu2cv7/ssite/public/"
+var copyPath2 = "../appid9c3cnu2cv7/ssite/private/"
 
 /**
  * Handle bower components from index
@@ -32,6 +34,10 @@ gulp.task('usemin', function() {
         }))
         .pipe(gulp.dest('dist/'))
 		.pipe(gulp.dest(copyPath));
+});
+
+gulp.task('usemin2', ['usemin'], function() {
+	fs.renameSync(copyPath + "index.html", copyPath2 + "index.html");
 });
 
 /**
@@ -89,7 +95,7 @@ gulp.task('watch', function() {
     gulp.watch([paths.styles], ['custom-less']);
     gulp.watch([paths.scripts], ['custom-js']);
     gulp.watch([paths.templates], ['custom-templates']);
-    gulp.watch([paths.index], ['usemin']);
+    gulp.watch([paths.index], ['usemin2']);
 });
 
 /**
@@ -112,5 +118,5 @@ gulp.task('livereload', function() {
 /**
  * Gulp tasks
  */
-gulp.task('build', ['usemin', 'build-assets', 'build-custom']);
+gulp.task('build', ['usemin2', 'build-assets', 'build-custom']);
 gulp.task('default', ['build', 'webserver', 'livereload', 'watch']);

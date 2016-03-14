@@ -19,6 +19,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/viewers',
                 templateUrl: 'templates/viewers.html'
             })
+            .state('newjob', {
+                url: '/newjob',
+                templateUrl: 'templates/newjob.html'
+            })
             .state('tables', {
                 url: '/tables',
                 templateUrl: 'templates/tables.html'

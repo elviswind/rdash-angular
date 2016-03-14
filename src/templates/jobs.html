@@ -4,10 +4,11 @@
             <table class="table table-striped">
                 <tbody>
                     <tr ng-repeat="job in jobs">
-                        <td>{{job.name}}</td>
+                        <td><a href="/viewer/{{ job.name }}" target="_blank">{{job.name}}</a></td>
                         <td>{{job.lastStartTxt}}运行</td>
                         <td>{{job.lastEndTxt}}结束 </td>
-                        <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}，{{job.currentpage}}/{{job.maxpage}}</td>
+                        <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}</td>
+                        <td>{{job.currentpage}}/{{job.maxpage}}</td>
                         <td>
                             <button class="btn btn-xs btn-primary {{job.activeClass}}" ng-click="activejob(job)">{{job.activeText}}</button>
                             <div class="btn-group" uib-dropdown is-open="status.isopen">

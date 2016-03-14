@@ -1,10 +1,19 @@
 angular
     .module('RDash')
-    .controller('NewJobCtrl', ['$scope', '$http', NewJobCtrl]);
+    .controller('NewJobCtrl', ['$scope', '$http', '$stateParams', 'jobService', NewJobCtrl]);
 
-function NewJobCtrl($scope, $http) {
+function NewJobCtrl($scope, $http, $stateParams, jobService) {
+    var key = $stateParams.key;
+    var step = 1;
+    if (key == "edit" && jobService.currentJob) {
+        $scope.searcher = jobService.currentJob;
+        step = 2;
+    } else if (key == "new") {
+        $scope.searcher = null;
+        step = 1;
+    }
     $scope.visible = {
-        step: 1
+        step: step
     };
     $scope.ProcessStep1 = function() {
         $http.post('/step1', {
@@ -23,6 +32,23 @@ function NewJobCtrl($scope, $http) {
 
             $scope.searcher = data;
             $scope.visible.step = 2;
+        });
+    };
+    $scope.testList = function() {
+        $http.post('/testList', $scope.searcher).success(function(data) {
+            alert(JSON.stringify(data));
+            console.log(data.logs);
+        });
+    };
+    $scope.testContent = function() {
+        $http.post('/testContent', $scope.searcher).success(function(data) {
+            alert(data);
+            console.log(data);
+        });
+    };
+    $scope.save = function() {
+        $http.post('/saveJob', $scope.searcher).success(function(data) {
+            alert(data);
         });
     };
 }

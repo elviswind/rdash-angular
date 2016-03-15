@@ -1,10 +1,10 @@
 angular
     .module('RDash')
-    .controller('ViewersCtrl', ['$scope', '$http', ViewersCtrl]);
+    .controller('ViewersCtrl', ['$scope', '$http', '$location', 'util', ViewersCtrl]);
 
-function ViewersCtrl($scope, $http) {
-    $scope.viewer = {};
+function ViewersCtrl($scope, $http, $location, util) {
     $scope.RefreshViewers = function() {
+        $scope.viewers = [];
         $http.get('/viewers').success(function(data) {
             for (var i = 0; i < data.length; i++) {
                 data[i].onlyContent = data[i].onlyContent ? true : false;
@@ -14,6 +14,12 @@ function ViewersCtrl($scope, $http) {
     };
     $scope.RefreshViewers();
     $scope.editViewer = function(viewer) {
-        $scope.viewer = viewer;
+        util.currentViewer = viewer;
+        $location.url('/viewer/edit')
+    }
+    $scope.deleteViewer = function(name) {
+        $http.post('/deleteviewer/' + name).success(function() {
+            $scope.RefreshViewers();
+        });
     }
 }

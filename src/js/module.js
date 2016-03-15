@@ -1,9 +1,9 @@
 var mod = angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'ui.ace']);
-mod.factory('jobService', function() {
-    var jobs;
-    var job;
+mod.factory('util', function() {
+    var jobs, job, viewer;
     return {
         allJobs: jobs,
-        currentJob: job
+        currentJob: job,
+        currentViewer: viewer
     };
 });

@@ -1,12 +1,12 @@
 angular
     .module('RDash')
-    .controller('NewJobCtrl', ['$scope', '$http', '$stateParams', 'jobService', NewJobCtrl]);
+    .controller('NewJobCtrl', ['$scope', '$http', '$stateParams', 'util', NewJobCtrl]);
 
-function NewJobCtrl($scope, $http, $stateParams, jobService) {
+function NewJobCtrl($scope, $http, $stateParams, util) {
     var key = $stateParams.key;
     var step = 1;
-    if (key == "edit" && jobService.currentJob) {
-        $scope.searcher = jobService.currentJob;
+    if (key == "edit" && util.currentJob) {
+        $scope.searcher = util.currentJob;
         step = 2;
     } else if (key == "new") {
         $scope.searcher = null;

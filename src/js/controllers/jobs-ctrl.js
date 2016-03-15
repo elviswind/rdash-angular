@@ -1,9 +1,9 @@
 angular
     .module('RDash')
-    .controller('JobsCtrl', ['$scope', '$http', '$location', 'jobService', JobsCtrl]);
+    .controller('JobsCtrl', ['$scope', '$http', '$location', 'util', JobsCtrl]);
 
 autoRefreshJobs = null;
-function JobsCtrl($scope, $http, $location, jobService) {
+function JobsCtrl($scope, $http, $location, util) {
     $scope.jobs = [];
     $scope.RefreshJobs = function() {
         $http.get('/jobs').success(function(data) {
@@ -12,7 +12,7 @@ function JobsCtrl($scope, $http, $location, jobService) {
                 data[i].activeText = data[i].active ? "运行中" : "未运行";
             }
             $scope.jobs = data;
-            jobService.allJobs = data;
+            util.allJobs = data;
         });
     };
 
@@ -22,7 +22,7 @@ function JobsCtrl($scope, $http, $location, jobService) {
     }
 
     $scope.editjob = function(x) {
-        jobService.currentJob = JSON.parse(x);
+        util.currentJob = JSON.parse(x);
         $location.url('/job/edit');
     };
     $scope.activejob = function(job) {

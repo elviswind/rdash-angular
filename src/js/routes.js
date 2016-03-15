@@ -23,9 +23,9 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/job/:key',
                 templateUrl: 'templates/newjob.html'
             })
-            .state('tables', {
-                url: '/tables',
-                templateUrl: 'templates/tables.html'
+            .state('newviewer', {
+                url: '/viewer/:key',
+                templateUrl: 'templates/newviewer.html'
             });
     }
 ]);

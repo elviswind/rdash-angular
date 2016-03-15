@@ -4,6 +4,7 @@ angular
 
 autoRefreshJobs = null;
 function JobsCtrl($scope, $http, $location, jobService) {
+    $scope.jobs = [];
     $scope.RefreshJobs = function() {
         $http.get('/jobs').success(function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -22,7 +23,7 @@ function JobsCtrl($scope, $http, $location, jobService) {
 
     $scope.editjob = function(x) {
         jobService.currentJob = JSON.parse(x);
-        $location.path('/job/edit');
+        $location.url('/job/edit');
     };
     $scope.activejob = function(job) {
         $http.post('/active/' + job.name + '/' + (job.active + 1) % 2).success(function() {

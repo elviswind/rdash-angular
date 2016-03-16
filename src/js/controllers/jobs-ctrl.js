@@ -4,8 +4,8 @@ angular
 
 autoRefreshJobs = null;
 function JobsCtrl($scope, $http, $location, util) {
-    $scope.jobs = null;
     $scope.RefreshJobs = function() {
+        $scope.jobs = null;
         $http.get('/jobs').success(function(data) {
             for (var i = 0; i < data.length; i++) {
                 data[i].activeClass = data[i].active ? "active" : "";

@@ -4,7 +4,7 @@ angular
 
 function ViewersCtrl($scope, $http, $location, util) {
     $scope.RefreshViewers = function() {
-        $scope.viewers = [];
+        $scope.viewers = null;
         $http.get('/viewers').success(function(data) {
             for (var i = 0; i < data.length; i++) {
                 data[i].onlyContent = data[i].onlyContent ? true : false;

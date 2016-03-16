@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-lg-12" ng-controller="LogsCtrl">
+        <div class="row mb10">
+            <a class="btn btn-sm btn-default" ng-click="fetchLogs(1)">debug</a>
+            <a class="btn btn-sm btn-info" ng-click="fetchLogs(2)">info</a>
+            <a class="btn btn-sm btn-warning" ng-click="fetchLogs(3)">warn</a>
+            <a class="btn btn-sm btn-danger" ng-click="fetchLogs(4)">error</a>
+            <a class="btn btn-sm btn-danger" ng-click="cleanLogs()">Clean Logs</a>
+        </div>
+        <div class="table-responsive">
+            <rd-loading ng-show="!logs"></rd-loading>
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="log in logs" class="log{{log.type}}">
+                        <td>{{log.date}}</td>
+                        <td>{{log.log}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

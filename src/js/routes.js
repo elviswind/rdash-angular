@@ -26,6 +26,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('newviewer', {
                 url: '/viewer/:key',
                 templateUrl: 'templates/newviewer.html'
+            })
+            .state('logs', {
+                url: '/logs',
+                templateUrl: 'templates/logs.html'
             });
     }
 ]);

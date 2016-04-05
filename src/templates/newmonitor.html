@@ -1,0 +1,32 @@
+<div ng-controller="NewViewerCtrl">
+    <form action="/sql" class="form-horizontal" role="form" method="post" target="_blank">
+        <div class="form-group">
+            <label for="listReq" class="col-sm-2 control-label">name</label>
+
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="name" ng-model="viewer.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="listReq" class="col-sm-2 control-label">sql text</label>
+
+            <div class="col-sm-8">
+                <div ng-model="viewer.sql" ui-ace="{mode: 'sql', onChange: aceChanged}"></div>
+                <input type="hidden" name="sql" id="sql">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="checkbox" name="onlyContent" ng-model="viewer.onlyContent"> use content template but no title
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a class="btn btn-default btn-primary" role="button" ng-click="saveViewer()">save as viewer</a>
+                <button class="btn btn-success" ng-submit="submit()">query</button>
+            </div>
+        </div>
+    </form>
+</div>

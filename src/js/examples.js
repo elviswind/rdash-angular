@@ -49,3 +49,8 @@ var getContentExample = function($, item, extraData, logs) {
     }
     return contentNode.html();
 };
+
+var monitorActionExample = function(logs, callback) {
+    var success = false;
+    callback(success, logs);
+};

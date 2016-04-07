@@ -6,9 +6,12 @@
                 <tbody>
                     <tr ng-repeat="m in monitors">
                         <td>{{m.name}}</td>
+                        <td>{{m.lastRunTxt}} 上次运行</td>
+                        <td>{{m.lastRightTxt}} 上次OK</td>
                         <td>
-                            <a class="btn btn-sm btn-default" ng-click="editMonitor(m)">编辑</a>
-                            <a class="btn btn-sm btn-danger" ng-click="deleteMonitor(m.name)">删除</a>
+                            <button class="btn btn-xs btn-primary {{m.activeClass}}" ng-click="activeMonitor(m)">{{m.activeText}}</button>
+                            <a class="btn btn-xs btn-default" ng-click="editMonitor(m.content)">编辑</a>
+                            <a class="btn btn-xs btn-danger" ng-click="deleteMonitor(m.name)">删除</a>
                         </td>
                     </tr>
                 </tbody>

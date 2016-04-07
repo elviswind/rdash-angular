@@ -1,24 +1,24 @@
 <div ng-controller="NewMonitorCtrl">
-    <form ng-show="visible.step==1" class="form-horizontal" role="form">
-        <div class="form-group">
-            <label for="listReq" class="col-sm-2 control-label">list chrome</label>
-
-            <div class="col-sm-9">
-                <textarea class="form-control" name="listReq" ng-model="chromeInfo" rows="20"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-9">
-                <a class="btn btn-success" href="javascript:void(0)" role="button" ng-click="ProcessStep1()">Next</a>
-            </div>
-        </div>
-    </form>
-    <form ng-show="visible.step==2" class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form">
         <div class="form-group">
             <label for="listReq" class="col-sm-2 control-label">name</label>
 
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="name" ng-model="monitor.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="listReq" class="col-sm-2 control-label">url</label>
+
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="url" ng-model="monitor.url">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="listReq" class="col-sm-2 control-label">headers</label>
+
+            <div class="col-sm-8">
+                <textarea type="text" class="form-control" name="headers" ng-model="monitor.headers"></textarea>
             </div>
         </div>
         <div class="form-group">

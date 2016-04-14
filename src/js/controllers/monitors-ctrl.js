@@ -14,13 +14,18 @@ function MonitorsCtrl($scope, $http, $location, util) {
         });
     };
     $scope.RefreshMonitors();
+    $scope.activeMonitor = function(m) {
+        $http.post('/activemonitor/' + m.name + '/' + (m.active + 1) % 2).success(function() {
+            $scope.RefreshMonitors();
+        });
+    };
     $scope.editMonitor = function(x) {
         util.currentMonitor = JSON.parse(x);
         $location.url('/monitor/edit')
     }
     $scope.deleteMonitor = function(name) {
-        $http.post('/deleteviewer/' + name).success(function() {
-            $scope.RefreshViewers();
+        $http.post('/deletemonitor/' + name).success(function() {
+            $scope.RefreshMonitors();
         });
     }
 }

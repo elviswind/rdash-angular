@@ -17,6 +17,7 @@ var getItemsExample = function(body, cheerio, logs, params) {
     for (var i = 0; i < links.length; i++) {
         var link = links.eq(i);
         logs.push("[" + i + "] " + link.attr('href') + " " + link.html())
+        logs.push($.html(link));
     }
     for (var i = 0; i < listNodes.length; i++) {
         var item = {};

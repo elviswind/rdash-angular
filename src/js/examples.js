@@ -1,4 +1,5 @@
-var getItemsExample = function($, logs, params) {
+var getItemsExample = function(body, $, logs, params) {
+    // params.nextPageUrl = '';
     var listNodes = $('tr');
     if (listNodes === null || listNodes.length === 0) {
         logs.push('empty list');

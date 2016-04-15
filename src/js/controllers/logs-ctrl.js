@@ -6,7 +6,7 @@ function LogsCtrl($scope, $http, util) {
     $scope.fetchLogs = function(logtype) {
         if (logtype >= 0 && logtype <= 4) {
             $scope.logtype = logtype;
-            $scope.logs = [];
+            $scope.logs = null;
             $http.get('/api/logs/' + logtype).success(function(data) {
                 for (var i = 0; i < data.length; i++) {
                     data[i].date = moment(data[i].createDate).format('MMMM Do YYYY, h:mm:ss a');;

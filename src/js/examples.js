@@ -1,6 +1,6 @@
 var getItemsExample = function(body, cheerio, logs, params) {
     // params.nextPageUrl = '';
-    var $ = cheerio.load(body,
+    var $ = cheerio.load(body, {
         decodeEntities: false
     });
     var listNodes = $('tr');

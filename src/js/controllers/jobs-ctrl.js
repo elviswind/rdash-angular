@@ -2,7 +2,6 @@ angular
     .module('RDash')
     .controller('JobsCtrl', ['$scope', '$http', '$location', 'util', JobsCtrl]);
 
-autoRefreshJobs = null;
 function JobsCtrl($scope, $http, $location, util) {
     $scope.RefreshJobs = function() {
         $scope.jobs = null;
@@ -17,9 +16,6 @@ function JobsCtrl($scope, $http, $location, util) {
     };
 
     $scope.RefreshJobs();
-    if(!autoRefreshJobs){
-      autoRefreshJobs = setInterval($scope.RefreshJobs,5000);
-    }
 
     $scope.editjob = function(x) {
         util.currentJob = JSON.parse(x);

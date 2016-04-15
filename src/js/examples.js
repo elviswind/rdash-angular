@@ -1,5 +1,8 @@
-var getItemsExample = function(body, $, logs, params) {
+var getItemsExample = function(body, cheerio, logs, params) {
     // params.nextPageUrl = '';
+    var $ = cheerio.load(body,
+        decodeEntities: false
+    });
     var listNodes = $('tr');
     if (listNodes === null || listNodes.length === 0) {
         logs.push('empty list');

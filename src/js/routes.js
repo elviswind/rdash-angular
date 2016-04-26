@@ -7,17 +7,17 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/strings');
 
         // Application routes
         $stateProvider
             .state('index', {
-                url: '/',
-                templateUrl: 'templates/dashboard.html'
+                url: '/strings',
+                templateUrl: 'templates/strings.html'
             })
             .state('tables', {
-                url: '/tables',
-                templateUrl: 'templates/tables.html'
+                url: '/logs',
+                templateUrl: 'templates/logs.html'
             });
     }
 ]);

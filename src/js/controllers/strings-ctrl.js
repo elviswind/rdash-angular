@@ -1,18 +1,15 @@
 angular
     .module('RDash')
-    .controller('StringsCtrl', ['$scope', StringsCtrl]);
+    .controller('StringsCtrl', ['$scope', '$http', StringsCtrl]);
 
-function StringsCtrl($scope) {
+function StringsCtrl($scope, $http) {
     $scope.fetchStrings = function() {
         $scope.strings = null;
-        $http.get('/api/strings/').success(function(data) {
-            for (var i = 0; i < data.length; i++) {
-                data[i].date = moment(data[i].createDate).format('MMMM Do YYYY, h:mm:ss a');;
-            }
+        $http.get('/api/strings').success(function(data) {
             $scope.strings = data;
         });
     };
-    $scope.fetchLogs(3);
+    $scope.fetchStrings();
 
     $scope.editString = function(data) {
         $http.post('/api/editstring/', data).success(function(data) {

@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-lg-12" ng-controller="StringsCtrl">
+        <div class="table-responsive">
+            <rd-loading ng-show="!strings"></rd-loading>
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="string in strings">
+                        <td>{{string.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-success" href="#/string/new"><i class="fa fa-plus"></i> Create New String</a>
+        </div>
+    </div>
+</div>

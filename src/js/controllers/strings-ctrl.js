@@ -1,8 +1,10 @@
 angular
     .module('RDash')
-    .controller('StringsCtrl', ['$scope', '$http', StringsCtrl]);
+    .controller('StringsCtrl', ['$scope', '$http', 'util', '$location', StringsCtrl]);
 
-function StringsCtrl($scope, $http) {
+function StringsCtrl($scope, $http, util, $location) {
+
+    $scope.limit = 30;
     $scope.fetchStrings = function() {
         $scope.strings = null;
         $http.get('/api/strings').success(function(data) {
@@ -11,9 +13,14 @@ function StringsCtrl($scope, $http) {
     };
     $scope.fetchStrings();
 
-    $scope.editString = function(data) {
-        $http.post('/api/editstring/', data).success(function(data) {
-            $scope.fetchLogs($scope.logtype);
+    $scope.editString = function(string) {
+        util.currentString = string;
+        $location.url('/string/edit');
+    }
+    $scope.deleteString = function(string) {
+        util.currentString = string;
+        $http.post('/api/deletestring', string).success(function(data) {
+            $scope.fetchStrings();
         });
     }
 }

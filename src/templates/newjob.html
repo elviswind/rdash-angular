@@ -141,6 +141,10 @@
                 <a class="btn btn-default btn-lg" ng-click="testList()">test</a>
             </div>
         </div>
+        <div class="row" ng-show="listTestLogs">
+            <pre class="col-sm-offset-2 col-sm-9">{{listTestDataJSON}}
+{{listTestLogs}}</pre>
+        </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">get content</label>
 

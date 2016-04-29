@@ -24,6 +24,11 @@ var getItemsExample = function(body, cheerio, logs, params) {
         var n = $(listNodes[i]);
 
         var a = n.find('a').eq(0);
+        var thumbNode = a.find('img');
+        if(thumbNode){
+            item.thumb = thumbNode.attr('src');
+            a = n.find('a').eq(1);
+        }
         if (!a || a.length == 0 || !a.attr('href')) {
             ignoredCount++;
             continue;

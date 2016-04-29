@@ -19,7 +19,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/string/:key',
                 templateUrl: 'templates/newstring.html'
             })
-            .state('tables', {
+            .state('logs', {
                 url: '/logs',
                 templateUrl: 'templates/logs.html'
             });

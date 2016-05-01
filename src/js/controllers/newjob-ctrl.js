@@ -35,17 +35,19 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         });
     };
     $scope.testList = function() {
-        $scope.listTestDataJSON = null;
-        $scope.listTestLogs = null;
+        $scope.testListDataJSON = null;
+        $scope.testListLogs = null;
         $http.post('/testList', $scope.searcher).success(function(data) {
-            $scope.listTestDataJSON = JSON.stringify(data.data[0], null, '\t');
-            $scope.listTestLogs = data.logs;
+            $scope.testListDataJSON = JSON.stringify(data.data[0], null, '\t');
+            $scope.testListLogs = data.logs;
         });
     };
     $scope.testContent = function() {
+      $scope.testContentDataJSON = null;
+      $scope.testContentLogs = null;
         $http.post('/testContent', $scope.searcher).success(function(data) {
-            alert(data);
-            console.log(data);
+            $scope.testContentDataJSON = data.data;
+            $scope.testContentLogs = data.logs;
         });
     };
     $scope.save = function() {

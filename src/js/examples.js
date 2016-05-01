@@ -25,7 +25,7 @@ var getItemsExample = function(body, cheerio, logs, params) {
 
         var a = n.find('a').eq(0);
         var thumbNode = a.find('img');
-        if(thumbNode){
+        if(thumbNode && thumbNode.length == 1){
             item.thumb = thumbNode.attr('src');
             a = n.find('a').eq(1);
         }

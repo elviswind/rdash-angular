@@ -38,7 +38,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         $scope.listTestDataJSON = null;
         $scope.listTestLogs = null;
         $http.post('/testList', $scope.searcher).success(function(data) {
-            $scope.listTestDataJSON = JSON.stringify(data.data.slice(0,5), null, '\t');
+            $scope.listTestDataJSON = JSON.stringify(data.data[0], null, '\t');
             $scope.listTestLogs = data.logs;
         });
     };

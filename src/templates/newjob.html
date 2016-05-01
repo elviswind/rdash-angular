@@ -141,7 +141,7 @@
                 <a class="btn btn-default btn-lg" ng-click="testList()">test</a>
             </div>
         </div>
-        <div class="row" ng-show="testListLogs">
+        <div class="row" ng-show="showTestListResult">
             <pre class="col-sm-offset-2 col-sm-9">{{testListDataJSON}}
 {{testListLogs}}</pre>
         </div>
@@ -157,7 +157,7 @@
                 <a class="btn btn-default btn-lg" ng-click="testContent()">test</a>
             </div>
         </div>
-        <div class="row" ng-show="testContentLogs">
+        <div class="row" ng-show="showTestContentResult">
             <pre class="col-sm-offset-2 col-sm-9">{{testContentDataJSON}}
 {{testContentLogs}}</pre>
         </div>

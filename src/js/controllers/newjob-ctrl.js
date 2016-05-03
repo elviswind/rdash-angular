@@ -15,6 +15,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
     $scope.visible = {
         step: step
     };
+
     $scope.ProcessStep1 = function() {
         $http.post('/step1', {
             listReq: $scope.chromeInfo

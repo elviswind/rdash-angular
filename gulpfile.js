@@ -21,8 +21,8 @@ var paths = {
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
 };
 
-var copyPath = "../appid9c3cnu2cv7/ssite/public/"
-var copyPath2 = "../appid9c3cnu2cv7/ssite/private/"
+var copyPath = "../main/ssite/public/"
+var copyPath2 = "../main/ssite/private/"
 
 /**
  * Handle bower components from index

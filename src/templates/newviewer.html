@@ -18,6 +18,15 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
+                <select type="checkbox" name="type" ng-model="viewer.type">
+                  <option value="admin-table">table, show in admin panel</option>
+                  <option value="admin-content">content, show in admin panel</option>
+                  <option value="json">json</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
                 <input type="checkbox" name="onlyContent" ng-model="viewer.onlyContent"> use content template but no title
             </div>
         </div>

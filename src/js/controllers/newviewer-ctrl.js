@@ -13,7 +13,7 @@ function NewViewerCtrl($scope, $http, $location, $stateParams, util) {
         if (!$scope.viewer.name) {
             $scope.viewer.name = prompt("name of this sql");
         }
-        $http.post('/saveviewer', $scope.viewer).success(function(data) {
+        $http.post('/suapi/saveviewer', $scope.viewer).success(function(data) {
             $scope.viewer = {};
             $location.url('/viewers');
         });

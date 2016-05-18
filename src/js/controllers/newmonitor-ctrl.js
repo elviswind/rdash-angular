@@ -13,13 +13,13 @@ function NewMonitorCtrl($scope, $http, $location, $stateParams, util) {
     }
 
     $scope.save = function() {
-        $http.post('/savemonitor', $scope.monitor).success(function(data) {
+        $http.post('/suapi/savemonitor', $scope.monitor).success(function(data) {
             $scope.monitor = {};
             $location.url('/monitors');
         });
     };
     $scope.testMonitor = function(){
-        $http.post('/testMonitor', $scope.monitor).success(function(data) {
+        $http.post('/suapi/testMonitor', $scope.monitor).success(function(data) {
             alert(data.result);
             console.log(data.logs);
         });

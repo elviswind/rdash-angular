@@ -5,7 +5,7 @@ angular
 function ViewersCtrl($scope, $http, $location, util) {
     $scope.RefreshViewers = function() {
         $scope.viewers = null;
-        $http.get('/viewers').success(function(data) {
+        $http.get('/suapi/viewers').success(function(data) {
             for (var i = 0; i < data.length; i++) {
                 data[i].onlyContent = data[i].onlyContent ? true : false;
             }
@@ -18,7 +18,7 @@ function ViewersCtrl($scope, $http, $location, util) {
         $location.url('/viewer/edit')
     }
     $scope.deleteViewer = function(name) {
-        $http.post('/deleteviewer/' + name).success(function() {
+        $http.post('/suapi/deleteviewer/' + name).success(function() {
             $scope.RefreshViewers();
         });
     }

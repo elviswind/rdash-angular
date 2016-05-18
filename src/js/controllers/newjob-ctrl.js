@@ -17,7 +17,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
     };
 
     $scope.ProcessStep1 = function() {
-        $http.post('/step1', {
+        $http.post('/suapi/step1', {
             listReq: $scope.chromeInfo
         }).success(function(data) {
             data.listHeaders = JSON.stringify(data.headers);
@@ -39,7 +39,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         $scope.showTestListResult = false;
         $scope.testListDataJSON = null;
         $scope.testListLogs = null;
-        $http.post('/testList', $scope.searcher).success(function(data) {
+        $http.post('/suapi/testList', $scope.searcher).success(function(data) {
             $scope.showTestListResult = !!data;
             $scope.testListDataJSON = JSON.stringify(data.data[0], null, '\t');
             $scope.testListLogs = data.logs;
@@ -49,14 +49,14 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
       $scope.showTestContentResult = false;
       $scope.testContentDataJSON = null;
       $scope.testContentLogs = null;
-        $http.post('/testContent', $scope.searcher).success(function(data) {
+        $http.post('/suapi/testContent', $scope.searcher).success(function(data) {
             $scope.showTestContentResult = !!data;
             $scope.testContentDataJSON = data.data;
             $scope.testContentLogs = data.logs;
         });
     };
     $scope.save = function() {
-        $http.post('/saveJob', $scope.searcher).success(function(data) {
+        $http.post('/suapi/saveJob', $scope.searcher).success(function(data) {
             alert(data);
         });
     };

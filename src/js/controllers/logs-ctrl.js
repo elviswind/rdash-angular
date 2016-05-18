@@ -7,7 +7,7 @@ function LogsCtrl($scope, $http, util) {
         if (logtype >= 0 && logtype <= 4) {
             $scope.logtype = logtype;
             $scope.logs = null;
-            $http.get('/api/logs/' + logtype).success(function(data) {
+            $http.get('/suapi/logs/' + logtype).success(function(data) {
                 for (var i = 0; i < data.length; i++) {
                     data[i].date = moment(data[i].createDate).format('MMMM Do YYYY, h:mm:ss a');;
                 }
@@ -18,7 +18,7 @@ function LogsCtrl($scope, $http, util) {
     $scope.fetchLogs(3);
 
     $scope.cleanLogs = function() {
-        $http.get('/cleanlogs').success(function(data) {
+        $http.get('/suapi/cleanlogs').success(function(data) {
             $scope.fetchLogs($scope.logtype);
         });
     }

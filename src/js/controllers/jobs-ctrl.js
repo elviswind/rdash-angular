@@ -19,7 +19,7 @@ function JobsCtrl($scope, $http, $location, util) {
 
     $scope.editjob = function(x) {
         util.currentJob = JSON.parse(x);
-        $location.url('/suapi/job/edit');
+        $location.url('/job/edit');
     };
     $scope.activejob = function(job) {
         $http.post('/suapi/active/' + job.name + '/' + (job.active + 1) % 2).success(function() {

@@ -21,7 +21,7 @@ function MonitorsCtrl($scope, $http, $location, util) {
     };
     $scope.editMonitor = function(x) {
         util.currentMonitor = JSON.parse(x);
-        $location.url('/suapi/monitor/edit')
+        $location.url('/monitor/edit')
     }
     $scope.deleteMonitor = function(name) {
         $http.post('/suapi/deletemonitor/' + name).success(function() {

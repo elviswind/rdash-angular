@@ -19,7 +19,7 @@ function NewStringCtrl($scope, $http, $location, $stateParams, util) {
             $scope.errors.push("value can't be null");
         }
         else{
-            $http.post('/api/savestring', $scope.string).success(function(data) {
+            $http.post('/suapi/savestring', $scope.string).success(function(data) {
                 $scope.viewer = {};
                 $scope.errors = [];
                 $location.url('/strings');

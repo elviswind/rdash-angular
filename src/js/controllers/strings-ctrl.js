@@ -7,7 +7,7 @@ function StringsCtrl($scope, $http, util, $location) {
     $scope.limit = 30;
     $scope.fetchStrings = function() {
         $scope.strings = null;
-        $http.get('/api/strings').success(function(data) {
+        $http.get('/suapi/strings').success(function(data) {
             $scope.strings = data;
         });
     };
@@ -19,7 +19,7 @@ function StringsCtrl($scope, $http, util, $location) {
     }
     $scope.deleteString = function(string) {
         util.currentString = string;
-        $http.post('/api/deletestring', string).success(function(data) {
+        $http.post('/suapi/deletestring', string).success(function(data) {
             $scope.fetchStrings();
         });
     }

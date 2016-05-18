@@ -7,7 +7,7 @@ function NewViewerCtrl($scope, $http, $location, $stateParams, util) {
     if (key == "edit" && util.currentViewer) {
         $scope.viewer = util.currentViewer;
     } else if (key == "new") {
-        $scope.viewer = null;
+        $scope.viewer = {type:"admin-table"};
     }
     $scope.saveViewer = function() {
         if (!$scope.viewer.name) {

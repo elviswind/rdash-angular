@@ -22,7 +22,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('logs', {
                 url: '/logs',
                 templateUrl: 'templates/logs.html'
-            });
+            })
             .state('viewers', {
                 url: '/viewers',
                 templateUrl: 'templates/viewers.html'
@@ -50,10 +50,6 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('newmonitor', {
                 url: '/monitor/:key',
                 templateUrl: 'templates/newmonitor.html'
-            })
-            .state('logs', {
-                url: '/logs',
-                templateUrl: 'templates/logs.html'
             });
     }
 ]);

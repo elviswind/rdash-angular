@@ -4,6 +4,7 @@ angular
 
 function JobsCtrl($scope, $http, $location, util) {
     $scope.RefreshJobs = function() {
+      console.log('a');
         $scope.jobs = null;
         $http.get('/suapi/jobs').success(function(data) {
             for (var i = 0; i < data.length; i++) {

@@ -1,5 +1,9 @@
-<div class="row">
-    <div class="col-lg-12" ng-controller="JobsCtrl">
+<div class="row" ng-controller="JobsCtrl">
+    <div class="col-lg-12">
+        <a class="btn btn-default" href="#/job/new"><span class="fa fa-plus"></span> add new</a>
+        <button class="btn btn-primary" ng-click="RefreshJobs()"><span class="fa fa-refresh"></span> refresh</button>
+    </div>
+    <div class="col-lg-12">
         <div class="table-responsive">
             <rd-loading ng-show="!jobs"></rd-loading>
             <table class="table table-striped">

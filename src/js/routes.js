@@ -11,7 +11,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
 
         // Application routes
         $stateProvider
-            .state('index', {
+            .state('strings', {
                 url: '/strings',
                 templateUrl: 'templates/strings.html'
             })

@@ -1,0 +1,177 @@
+<div ng-controller="NewJobCtrl">
+    <form ng-show="visible.step==1" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="listReq" class="col-sm-2 control-label">list chrome</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="listReq" ng-model="chromeInfo" rows="20"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <a class="btn btn-success" href="javascript:void(0)" role="button" ng-click="ProcessStep1()">Next</a>
+            </div>
+        </div>
+    </form>
+    <form ng-show="visible.step==2" class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <div class="checkbox">
+                    <label>
+                        <input name="isGBK" type="checkbox" ng-model="searcher.isGBK"> isGBK
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="isGZIP" type="checkbox" ng-model="searcher.isGZIP"> isGZIP
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="autoReset" type="checkbox" ng-model="searcher.autoReset"> autoReset
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="listHeaders" class="col-sm-2 control-label">list headers</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="listHeaders" ng-model="searcher.listHeaders" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="detailHeaders" class="col-sm-2 control-label">detail headers</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="detailHeaders" ng-model="searcher.detailHeaders" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tableName" class="col-sm-2 control-label">table name</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="tableName" ng-model="searcher.tableName" placeholder="xxx">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="uniqueField" class="col-sm-2 control-label">unique field</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="uniqueField" ng-model="searcher.uniqueField" value="link">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sortField" class="col-sm-2 control-label">sort field</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="sortField" ng-model="searcher.sortField" placeholder="id">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="doneListSql" class="col-sm-2 control-label">done list sql</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="doneListSql" ng-model="searcher.doneListSql" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="maxPageScript" class="col-sm-2 control-label">max page script</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="maxPageScript" ng-model="searcher.maxPageScript" rows="3">1</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <a class="btn btn-default btn-lg" onclick="testMaxPage()">test</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="listUrlFormat" class="col-sm-2 control-label">list url format</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="listUrlFormat" ng-model="searcher.listUrlFormat" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pagesListSql" class="col-sm-2 control-label">pages list sql</label>
+
+            <div class="col-sm-9">
+                <div ng-model="searcher.pagesListSql" ui-ace="{mode: 'sql'}"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="replaceScript" class="col-sm-2 control-label">pages list strings</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="replaceScript" ng-model="searcher.pageListStrings" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contentListSql" class="col-sm-2 control-label">content list sql</label>
+
+            <div class="col-sm-9">
+                <div ng-model="searcher.contentListSql" ui-ace="{mode: 'sql'}"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="replaceScript" class="col-sm-2 control-label">replace script</label>
+
+            <div class="col-sm-9">
+                <textarea class="form-control" name="replaceScript" ng-model="searcher.replaceScript" rows="3" placeholder="replacement = page"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="listWait" class="col-sm-2 control-label">list wait(ms)</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="listWait" ng-model="searcher.listWait" value="0">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="detailWait" class="col-sm-2 control-label">detail wait(ms)</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="detailWait" ng-model="searcher.detailWait" value="0">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">get Items</label>
+
+            <div class="col-sm-9">
+                <div ui-ace="{mode: 'javascript'}" ng-model="searcher.getItems"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <a class="btn btn-default btn-lg" ng-click="testList()">test</a>
+            </div>
+        </div>
+        <div class="row" ng-show="showTestListResult">
+            <pre class="col-sm-offset-2 col-sm-9">{{testListDataJSON}}
+{{testListLogs}}</pre>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">get content</label>
+
+            <div class="col-sm-9">
+                <div ui-ace="{mode: 'javascript'}" ng-model="searcher.getContent"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <a class="btn btn-default btn-lg" ng-click="testContent()">test</a>
+            </div>
+        </div>
+        <div class="row" ng-show="showTestContentResult">
+            <pre class="col-sm-offset-2 col-sm-9">{{testContentDataJSON}}
+{{testContentLogs}}</pre>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <a class="btn btn-lg btn-success" href="javascript:void(0)" ng-click="save()">save job</a>
+            </div>
+        </div>
+    </form>
+</div>

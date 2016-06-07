@@ -22,6 +22,34 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('logs', {
                 url: '/logs',
                 templateUrl: 'templates/logs.html'
+            })
+            .state('viewers', {
+                url: '/viewers',
+                templateUrl: 'templates/viewers.html'
+            })
+            .state('newviewer', {
+                url: '/viewer/:key',
+                templateUrl: 'templates/newviewer.html'
+            })
+            .state('pages', {
+                url: '/pages',
+                templateUrl: 'templates/pages.html'
+            })
+            .state('jobs', {
+                url: '/jobs',
+                templateUrl: 'templates/jobs.html'
+            })
+            .state('newjob', {
+                url: '/job/:key',
+                templateUrl: 'templates/newjob.html'
+            })
+            .state('monitors', {
+                url: '/monitors',
+                templateUrl: 'templates/monitors.html'
+            })
+            .state('newmonitor', {
+                url: '/monitor/:key',
+                templateUrl: 'templates/newmonitor.html'
             });
     }
 ]);

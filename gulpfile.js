@@ -12,7 +12,8 @@ var gulp = require('gulp'),
 	fs = require('fs');
 
 var paths = {
-    scripts: 'src/js/**/*.*',
+    scripts: ['src/js/**/*.*', '!src/js/examples.js'],
+	example_script: 'src/js/examples.js',
     styles: 'src/less/**/*.*',
     images: 'src/img/**/*.*',
     templates: 'src/templates/**/*.html',
@@ -20,8 +21,8 @@ var paths = {
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
 };
 
-var copyPath = "../main/example/public/"
-var copyPath2 = "../main/example/private/"
+var copyPath = "../main/ssite/public/"
+var copyPath2 = "../main/ssite/private/"
 
 /**
  * Handle bower components from index
@@ -57,7 +58,7 @@ gulp.task('copy-bower_fonts', function() {
 /**
  * Handle custom files
  */
-gulp.task('build-custom', ['custom-images', 'custom-js', 'custom-less', 'custom-templates']);
+gulp.task('build-custom', ['custom-images', 'custom-js', 'custom-less', 'custom-templates', 'custom-example-js']);
 
 gulp.task('custom-images', function() {
     return gulp.src(paths.images)
@@ -69,6 +70,12 @@ gulp.task('custom-js', function() {
     return gulp.src(paths.scripts)
         .pipe(minifyJs())
         .pipe(concat('dashboard.min.js'))
+        .pipe(gulp.dest('dist/js'))
+		.pipe(gulp.dest(copyPath + "js"));
+});
+
+gulp.task('custom-example-js', function() {
+    return gulp.src(paths.example_script)
         .pipe(gulp.dest('dist/js'))
 		.pipe(gulp.dest(copyPath + "js"));
 });
@@ -94,6 +101,7 @@ gulp.task('watch', function() {
     gulp.watch([paths.images], ['custom-images']);
     gulp.watch([paths.styles], ['custom-less']);
     gulp.watch([paths.scripts], ['custom-js']);
+    gulp.watch([paths.example_script], ['custom-example-js']);
     gulp.watch([paths.templates], ['custom-templates']);
     gulp.watch([paths.index], ['usemin2']);
 });

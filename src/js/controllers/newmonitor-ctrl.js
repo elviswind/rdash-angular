@@ -19,6 +19,7 @@ function NewMonitorCtrl($scope, $http, $location, $stateParams, util) {
         });
     };
     $scope.testMonitor = function(){
+        $scope.showTestResult = false;
         $http.post('/suapi/testMonitor', $scope.monitor).success(function(data) {
             $scope.showTestResult = true;
             $scope.testLogs = data.logs;

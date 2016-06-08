@@ -40,7 +40,9 @@
                 <a class="btn btn-default btn-lg" ng-click="testMonitor()">test</a>
             </div>
         </div>
-
+        <div class="row" ng-show="showTestResult">
+            <pre class="col-sm-offset-2 col-sm-9">{{testLogs}}</pre>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <a class="btn btn-lg btn-success" href="javascript:void(0)" ng-click="save()">save monitor</a>

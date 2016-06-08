@@ -20,8 +20,8 @@ function NewMonitorCtrl($scope, $http, $location, $stateParams, util) {
     };
     $scope.testMonitor = function(){
         $http.post('/suapi/testMonitor', $scope.monitor).success(function(data) {
-            alert(data.result);
-            console.log(data.logs);
+            $scope.showTestResult = true;
+            $scope.testLogs = data.logs;
         });
     }
 }

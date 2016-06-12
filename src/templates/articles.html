@@ -1,0 +1,15 @@
+<div class="row" ng-controller="ArticlesCtrl">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <rd-loading ng-show="!articles"></rd-loading>
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="d in articles">
+                        <td>{{d.name}}</td>
+                        <td>{{d.CreateDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

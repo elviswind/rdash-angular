@@ -1,0 +1,15 @@
+<div class="row" ng-controller="CommentsCtrl">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <rd-loading ng-show="!comments"></rd-loading>
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="d in comments">
+                        <td>{{d.name}}</td>
+                        <td>{{d.CreateDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

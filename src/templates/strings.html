@@ -7,8 +7,8 @@
                     <tr ng-repeat="string in strings">
                         <td>{{string.name}}</td>
                         <td><pre>{{string.value|limitTo:400}}<span ng-if="string.value.length > 400"><br>...</span></pre>
-                            <a class="btn btn-default btn-sm" ng-click="editString(string)">edit</a>
-                            <a class="btn btn-danger btn-sm" ng-click="deleteString(string)">delete</a>
+                            <a class="btn btn-default btn-sm" ng-click="editItem(string)">edit</a>
+                            <a class="btn btn-danger btn-sm" ng-click="deleteItem(string)">delete</a>
                             <span>version count: <a href="#/string/versions">{{string.versioncount}}</a></span>
                         </td>
                     </tr>

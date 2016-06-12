@@ -3,13 +3,7 @@ angular
     .controller('NewStringCtrl', ['$scope', '$http', '$location', '$stateParams', 'util', NewStringCtrl]);
 
 function NewStringCtrl($scope, $http, $location, $stateParams, util) {
-    $scope.errors = [];
-    var key = $stateParams.key;
-    if (key == "edit" && util.currentString) {
-        $scope.string = util.currentString;
-    } else if (key == "new") {
-        $scope.string = {};
-    }
+    util.InjectSingleItemScope('string', $scope, $stateParams);
     $scope.saveString = function() {
         $scope.errors = [];
         if (!$scope.string.name) {

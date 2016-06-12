@@ -19,7 +19,7 @@ function JobsCtrl($scope, $http, $location, util) {
     $scope.RefreshJobs();
 
     $scope.editjob = function(x) {
-        util.currentJob = JSON.parse(x);
+        util.current.job = JSON.parse(x);
         $location.url('/job/edit');
     };
     $scope.activejob = function(job) {

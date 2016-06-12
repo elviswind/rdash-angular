@@ -5,8 +5,8 @@ angular
 function NewJobCtrl($scope, $http, $stateParams, util) {
     var key = $stateParams.key;
     var step = 1;
-    if (key == "edit" && util.currentJob) {
-        $scope.searcher = util.currentJob;
+    if (key == "edit" && util.current.job) {
+        $scope.searcher = util.current.job;
         step = 2;
     } else if (key == "new") {
         $scope.searcher = null;

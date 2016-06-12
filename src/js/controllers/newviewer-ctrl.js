@@ -3,12 +3,8 @@ angular
     .controller('NewViewerCtrl', ['$scope', '$http', '$location', '$stateParams', 'util', NewViewerCtrl]);
 
 function NewViewerCtrl($scope, $http, $location, $stateParams, util) {
-    var key = $stateParams.key;
-    if (key == "edit" && util.currentViewer) {
-        $scope.viewer = util.currentViewer;
-    } else if (key == "new") {
-        $scope.viewer = {type:"admin-table"};
-    }
+    util.InjectSingleItemScope('viewer', $scope, $stateParams);
+    if(!$scope.viewer.type) $scope.viewer.type = "admin-table";
     $scope.saveViewer = function() {
         if (!$scope.viewer.name) {
             $scope.viewer.name = prompt("name of this sql");

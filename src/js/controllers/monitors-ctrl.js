@@ -20,7 +20,7 @@ function MonitorsCtrl($scope, $http, $location, util) {
         });
     };
     $scope.editMonitor = function(x) {
-        util.currentMonitor = JSON.parse(x);
+        util.current.monitor = JSON.parse(x);
         $location.url('/monitor/edit')
     }
     $scope.deleteMonitor = function(name) {

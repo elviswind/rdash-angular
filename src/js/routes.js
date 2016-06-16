@@ -19,10 +19,14 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/articles',
                 templateUrl: 'templates/articles.html'
             })
+			.state('newarticle', {
+                url: '/article/:key',
+                templateUrl: 'templates/newarticle.html'
+            })
             .state('textblocks', {
                 url: '/textblocks',
                 templateUrl: 'templates/textblocks.html'
-            })
+			})
             .state('comments', {
                 url: '/comments',
                 templateUrl: 'templates/comments.html'

@@ -1,4 +1,4 @@
-var mod = angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'ui.ace']);
+var mod = angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'ui.ace', 'ui.tinymce']);
 mod.factory('util', function() {
     var self = {};
     self.current = {};

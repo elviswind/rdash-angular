@@ -17,7 +17,10 @@ var paths = {
     images: 'src/img/**/*.*',
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
-    bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
+    bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}', //src\components\tinymce-dist\plugins
+    tinymce_plugins: 'src/components/tinymce-dist/plugins/**/*.*',
+    tinymce_skins: 'src/components/tinymce-dist/skins/**/*.*',
+    tinymce_themes: 'src/components/tinymce-dist/themes/**/*.*',
 };
 
 var copyPath = "../main/example/public/"
@@ -52,6 +55,23 @@ gulp.task('copy-bower_fonts', function() {
         }))
         .pipe(gulp.dest('dist/lib'))
 		.pipe(gulp.dest(copyPath + 'lib'));
+});
+
+gulp.task('tinymce', ['copy-tinymce-plugins', 'copy-tinymce-skins', 'copy-tinymce-themes']);
+gulp.task('copy-tinymce-plugins', function(){
+  return gulp.src(paths.tinymce_plugins)
+      .pipe(gulp.dest('dist/lib'))
+      .pipe(gulp.dest(copyPath + 'lib/js/plugins'));
+});
+gulp.task('copy-tinymce-skins', function(){
+  return gulp.src(paths.tinymce_skins)
+      .pipe(gulp.dest('dist/lib'))
+      .pipe(gulp.dest(copyPath + 'lib/js/skins'));
+});
+gulp.task('copy-tinymce-themes', function(){
+  return gulp.src(paths.tinymce_themes)
+      .pipe(gulp.dest('dist/lib'))
+      .pipe(gulp.dest(copyPath + 'lib/js/themes'));
 });
 
 /**
@@ -118,5 +138,5 @@ gulp.task('livereload', function() {
 /**
  * Gulp tasks
  */
-gulp.task('build', ['usemin2', 'build-assets', 'build-custom']);
+gulp.task('build', ['usemin2', 'build-assets', 'build-custom', 'tinymce']);
 gulp.task('default', ['build', 'webserver', 'livereload', 'watch']);

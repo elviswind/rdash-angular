@@ -8,8 +8,9 @@
             <table class="table table-striped">
                 <tbody>
                     <tr ng-repeat="d in articles">
-                        <td>{{d.name}}</td>
-                        <td>{{d.CreateDate}}</td>
+                        <td>{{d.title}}</td>
+                        <td>{{d.excerpt}}</td>
+                        <td><button class="btn btn-xs btn-default" ng-click="editItem(d)">edit</button></td>
                     </tr>
                 </tbody>
             </table>

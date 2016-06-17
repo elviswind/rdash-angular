@@ -24,13 +24,23 @@ mod.factory('util', function() {
           });
       }
     };
-    self.InjectSingleItemScope = function(singleName, $scope, $stateParams){
+    self.InjectSingleItemScope = function(singleName, $scope, $http, $stateParams, params){
       $scope.errors = [];
       var key = $stateParams.key;
       if (key == "edit" && self.current[singleName]) {
           $scope[singleName] = self.current[singleName];
       } else if (key == "new") {
-        $scope[singleName] = {};
+          $scope[singleName] = {};
+      }
+      else{
+          alert('error');
+          return;
+      }
+      var apipath = params.isAdmin ? '/suapi/' : '/api/';
+      $scope.saveItem = function(){
+        $http.post(apipath + key + singleName, $scope[singleName]).success(function(data) {
+            alert('done');
+        });
       }
     };
     return self;

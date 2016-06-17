@@ -10,6 +10,7 @@
                     <tr ng-repeat="d in articles">
                         <td>{{d.title}}</td>
                         <td>{{d.excerpt}}</td>
+                        <td><button class="btn btn-xs btn-default" ng-click="editItem(d)">edit</button></td>
                     </tr>
                 </tbody>
             </table>

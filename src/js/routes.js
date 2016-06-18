@@ -27,6 +27,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/textblocks',
                 templateUrl: 'templates/textblocks.html'
 			})
+            .state('newtextblock', {
+                url: '/textblock/:key',
+                templateUrl: 'templates/newtextblock.html'
+			      })
             .state('comments', {
                 url: '/comments',
                 templateUrl: 'templates/comments.html'

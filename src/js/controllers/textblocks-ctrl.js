@@ -3,5 +3,5 @@ angular
     .controller('TextblocksCtrl', ['$scope', '$http', 'util', '$location', TextblocksCtrl]);
 
 function TextblocksCtrl($scope, $http, util, $location) {
-    util.InjectListCrudScope('blocks', 'block', $scope, $http, $location, {isAdmin: true});
+    util.InjectListCrudScope('textblocks', 'textblock', $scope, $http, $location, {isAdmin: false});
 }

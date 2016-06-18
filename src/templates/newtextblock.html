@@ -7,6 +7,15 @@
         </div>
         <input type="hidden" ng-model="textblock.id">
         <div class="form-group">
+            <label class="col-sm-2 control-label">归属文章</label>
+
+            <div class="col-sm-8">
+                <select class="form-control" ng-model="textblock.articleId">
+                  <option ng-repeat="article in articles" value="{{article.id}}">{{article.title}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">章节</label>
 
             <div class="col-sm-8">

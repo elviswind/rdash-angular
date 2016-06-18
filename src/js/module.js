@@ -8,6 +8,9 @@ mod.factory('util', function() {
           $scope[name] = null;
           $http.get(apipath + name).success(function(data) {
               $scope[name] = data;
+          }).error(function(ret){
+              $scope[name] = [];
+              alert(ret);
           });
       };
       $scope.fetchList();
@@ -18,7 +21,6 @@ mod.factory('util', function() {
       }
 
       $scope.deleteItem = function(item) {
-          self.current[singleName] = item;
           $http.post(apipath + 'delete' + singleName, string).success(function(data) {
               $scope.fetchStrings();
           });

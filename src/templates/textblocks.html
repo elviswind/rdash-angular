@@ -4,12 +4,14 @@
     </div>
     <div class="col-lg-12">
         <div class="table-responsive">
-            <rd-loading ng-show="!blocks"></rd-loading>
+            <rd-loading ng-show="!textblocks"></rd-loading>
             <table class="table table-striped">
                 <tbody>
-                    <tr ng-repeat="d in blocks">
-                        <td>{{d.name}}</td>
-                        <td>{{d.CreateDate}}</td>
+                    <tr ng-repeat="d in textblocks">
+                        <td>{{d.num}}</td>
+                        <td>第{{d.group}}章 第{{d.num}}段</td>
+                        <td>{{d.createDate | date:'medium'}}</td>
+                        <td><button class="btn btn-xs btn-default" ng-click="editItem(d)">edit</button></td>
                     </tr>
                 </tbody>
             </table>

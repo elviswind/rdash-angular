@@ -4,10 +4,10 @@ angular
 
 function NewTextblockCtrl($scope, $http, $location, $stateParams, util) {
     util.InjectSingleItemScope('textblock', $scope, $http, $stateParams, {isAdmin: false});
-    $scope.getArticles = function(){
-        $http.get('/api/articles').success(function(data) {
-            $scope.articles = data;
+    $scope.getContents = function(){
+        $http.get('/api/contents').success(function(data) {
+            $scope.contents = data;
         });
     }
-    $scope.getArticles();
+    $scope.getContents();
 }

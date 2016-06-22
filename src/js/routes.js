@@ -15,18 +15,18 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/users',
                 templateUrl: 'templates/users.html'
             })
-            .state('articles', {
-                url: '/articles',
-                templateUrl: 'templates/articles.html'
+            .state('contents', {
+                url: '/contents',
+                templateUrl: 'templates/contents.html'
             })
-			.state('newarticle', {
-                url: '/article/:key',
-                templateUrl: 'templates/newarticle.html'
+            .state('newcontent', {
+                url: '/content/:key',
+                templateUrl: 'templates/newcontent.html'
             })
             .state('textblocks', {
                 url: '/textblocks',
                 templateUrl: 'templates/textblocks.html'
-			})
+			      })
             .state('newtextblock', {
                 url: '/textblock/:key',
                 templateUrl: 'templates/newtextblock.html'

@@ -1,13 +1,13 @@
-<div class="row" ng-controller="ArticlesCtrl">
+<div class="row" ng-controller="ContentsCtrl">
     <div class="col-lg-12">
-        <a class="btn btn-default" href="#/article/new"><span class="fa fa-plus"></span> New Article</a>
+        <a class="btn btn-default" href="#/content/new"><span class="fa fa-plus"></span> New Article</a>
     </div>
     <div class="col-lg-12">
         <div class="table-responsive">
-            <rd-loading ng-show="!articles"></rd-loading>
+            <rd-loading ng-show="!contents"></rd-loading>
             <table class="table table-striped">
                 <tbody>
-                    <tr ng-repeat="d in articles">
+                    <tr ng-repeat="d in contents">
                         <td>{{d.title}}</td>
                         <td>{{d.excerpt}}</td>
                         <td><button class="btn btn-xs btn-default" ng-click="editItem(d)">edit</button></td>

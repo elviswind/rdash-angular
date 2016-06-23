@@ -21,8 +21,8 @@ mod.factory('util', function() {
       }
 
       $scope.deleteItem = function(item) {
-          $http.post(apipath + 'delete' + singleName, string).success(function(data) {
-              $scope.fetchStrings();
+          $http.post(apipath + 'delete' + singleName, item).success(function(data) {
+              $scope.fetchList();
           });
       }
     };

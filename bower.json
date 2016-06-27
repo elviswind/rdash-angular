@@ -27,6 +27,7 @@
         "angular-ui-router": "^0.2.15",
         "bootstrap": "~3.3.6",
         "font-awesome": "~4.5.0",
+        "ng-file-upload": "",
 		"ace-builds": "",
 		"angular-ui-ace": "",
     "angular-ui-tinymce": "latest",

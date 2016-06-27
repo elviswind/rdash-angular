@@ -1,4 +1,4 @@
-var mod = angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'ui.ace', 'ui.tinymce']);
+var mod = angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'ui.ace', 'ui.tinymce', 'ngFileUpload']);
 mod.factory('util', function() {
     var self = {};
     self.current = {};
@@ -21,8 +21,8 @@ mod.factory('util', function() {
       }
 
       $scope.deleteItem = function(item) {
-          $http.post(apipath + 'delete' + singleName, string).success(function(data) {
-              $scope.fetchStrings();
+          $http.post(apipath + 'delete' + singleName, item).success(function(data) {
+              $scope.fetchList();
           });
       }
     };

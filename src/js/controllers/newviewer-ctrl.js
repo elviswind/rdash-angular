@@ -3,7 +3,7 @@ angular
     .controller('NewViewerCtrl', ['$scope', '$http', '$location', '$stateParams', 'util', NewViewerCtrl]);
 
 function NewViewerCtrl($scope, $http, $location, $stateParams, util) {
-    util.InjectSingleItemScope('viewer', $scope, $stateParams);
+    util.InjectSingleItemScope('viewer', $scope, $http, $stateParams, {});
     if(!$scope.viewer.type) $scope.viewer.type = "admin-table";
     $scope.saveViewer = function() {
         if (!$scope.viewer.name) {

@@ -40,9 +40,13 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         $scope.testListDataJSON = null;
         $scope.testListLogs = null;
         $http.post('/suapi/testList', $scope.searcher).success(function(data) {
-            $scope.showTestListResult = !!data;
+            $scope.showTestListResult = true
             $scope.testListDataJSON = JSON.stringify(data.data[0], null, '\t');
             $scope.testListLogs = data.logs;
+        }).fail(function(err){
+            $scope.showTestListResult = true
+            $scope.testListDataJSON = JSON.stringify(err, null, '\t');
+            $scope.testListLogs = null;
         });
     };
     $scope.testContent = function() {
@@ -50,9 +54,13 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
       $scope.testContentDataJSON = null;
       $scope.testContentLogs = null;
         $http.post('/suapi/testContent', $scope.searcher).success(function(data) {
-            $scope.showTestContentResult = !!data;
+            $scope.showTestContentResult = true;
             $scope.testContentDataJSON = data.data;
             $scope.testContentLogs = data.logs;
+        }).fail(function(err){
+            $scope.showTestContentResult = true
+            $scope.testContentDataJSON = JSON.stringify(err, null, '\t');
+            $scope.testContentLogs = null;
         });
     };
     $scope.save = function() {

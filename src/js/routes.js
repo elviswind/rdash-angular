@@ -51,6 +51,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/pages',
                 templateUrl: 'templates/pages.html'
             })
+            .state('newpage', {
+                url: '/page/:key',
+                templateUrl: 'templates/newpage.html'
+            })
             .state('jobs', {
                 url: '/jobs',
                 templateUrl: 'templates/jobs.html'

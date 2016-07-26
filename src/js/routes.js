@@ -38,6 +38,14 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('logs', {
                 url: '/logs',
                 templateUrl: 'templates/logs.html'
+            })
+            .state('pages', {
+                url: '/pages',
+                templateUrl: 'templates/pages.html'
+            })
+            .state('newpage', {
+                url: '/page/:key',
+                templateUrl: 'templates/newpage.html'
             });
     }
 ]);

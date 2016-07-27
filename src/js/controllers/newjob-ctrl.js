@@ -43,7 +43,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
             $scope.showTestListResult = true
             $scope.testListDataJSON = JSON.stringify(data.data[0], null, '\t');
             $scope.testListLogs = data.logs;
-        }).fail(function(err){
+        }).error(function(err){
             $scope.showTestListResult = true
             $scope.testListDataJSON = JSON.stringify(err, null, '\t');
             $scope.testListLogs = null;
@@ -57,7 +57,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
             $scope.showTestContentResult = true;
             $scope.testContentDataJSON = data.data;
             $scope.testContentLogs = data.logs;
-        }).fail(function(err){
+        }).error(function(err){
             $scope.showTestContentResult = true
             $scope.testContentDataJSON = JSON.stringify(err, null, '\t');
             $scope.testContentLogs = null;

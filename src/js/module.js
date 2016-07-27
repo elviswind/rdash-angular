@@ -23,6 +23,8 @@ mod.factory('util', function() {
       $scope.deleteItem = function(item) {
           $http.post(apipath + 'delete' + singleName, item).success(function(data) {
               $scope.fetchList();
+          }).error(function(ret){
+              alert('delete failed');
           });
       }
     };
@@ -42,6 +44,8 @@ mod.factory('util', function() {
       $scope.saveItem = function(){
         $http.post(apipath + key + singleName, $scope[singleName]).success(function(data) {
             alert('done');
+        }).error(function(ret){
+            alert('action failed');
         });
       }
     };

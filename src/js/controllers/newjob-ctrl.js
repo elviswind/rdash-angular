@@ -16,6 +16,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         step: step
     };
 
+    $scope.testListMessage = '';
     $scope.ProcessStep1 = function() {
         $http.post('/suapi/step1', {
             listReq: $scope.chromeInfo
@@ -35,30 +36,31 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
             $scope.visible.step = 2;
         });
     };
+    
+    $scope.testListOver = false;
+    $scope.testContentOver = false;
     $scope.testList = function() {
-        $scope.showTestListResult = false;
-        $scope.testListDataJSON = null;
+        $scope.testListDataJSON = 'loading';
         $scope.testListLogs = null;
         $http.post('/suapi/testList', $scope.searcher).success(function(data) {
-            $scope.showTestListResult = true
+            $scope.testListOver = true;
             $scope.testListDataJSON = JSON.stringify(data.data[0], null, '\t');
             $scope.testListLogs = data.logs;
         }).error(function(err){
-            $scope.showTestListResult = true
+            $scope.testListOver = true;
             $scope.testListDataJSON = JSON.stringify(err, null, '\t');
             $scope.testListLogs = null;
         });
     };
     $scope.testContent = function() {
-      $scope.showTestContentResult = false;
-      $scope.testContentDataJSON = null;
+      $scope.testContentDataJSON = 'loading';
       $scope.testContentLogs = null;
         $http.post('/suapi/testContent', $scope.searcher).success(function(data) {
-            $scope.showTestContentResult = true;
+            $scope.testContentOver = true;
             $scope.testContentDataJSON = data.data;
             $scope.testContentLogs = data.logs;
         }).error(function(err){
-            $scope.showTestContentResult = true
+            $scope.testContentOver = true;
             $scope.testContentDataJSON = JSON.stringify(err, null, '\t');
             $scope.testContentLogs = null;
         });

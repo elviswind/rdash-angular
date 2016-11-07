@@ -97,7 +97,7 @@
         <div class="form-group">
             <label for="pagesListSql" class="col-sm-2 control-label">pages list sql</label>
 
-            <div class="col-sm-9">
+            <div class="smallace col-sm-9">
                 <div ng-model="searcher.pagesListSql" ui-ace="{mode: 'sql'}"></div>
             </div>
         </div>
@@ -148,7 +148,7 @@
                 <a class="btn btn-default btn-lg" ng-click="testList()">test</a>
             </div>
         </div>
-        <div class="row" ng-show="showTestListResult">
+        <div class="row" ng-show="testListOver">
             <pre class="col-sm-offset-2 col-sm-9">{{testListDataJSON}}
 {{testListLogs}}</pre>
         </div>
@@ -164,7 +164,7 @@
                 <a class="btn btn-default btn-lg" ng-click="testContent()">test</a>
             </div>
         </div>
-        <div class="row" ng-show="showTestContentResult">
+        <div class="row" ng-show="testContentOver">
             <pre class="col-sm-offset-2 col-sm-9">{{testContentDataJSON}}
 {{testContentLogs}}</pre>
         </div>

@@ -1,5 +1,6 @@
 var getItemsExample = function(body, cheerio, logs, params) {
     // params.nextPageUrl = '';
+    logs.push(JSON.stringify(params));
     var $ = cheerio.load(body, {
         decodeEntities: false
     });

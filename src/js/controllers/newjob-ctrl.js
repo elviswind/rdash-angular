@@ -36,33 +36,33 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
             $scope.visible.step = 2;
         });
     };
-    
+
     $scope.testListOver = false;
     $scope.testContentOver = false;
     $scope.testList = function() {
         $scope.testListDataJSON = 'loading';
         $scope.testListLogs = null;
-        $http.post('/suapi/testList', $scope.searcher).success(function(data) {
+        $http.post('/suapi/testList', $scope.searcher).then(function(response) {
             $scope.testListOver = true;
-            $scope.testListDataJSON = JSON.stringify(data.data[0], null, '\t');
-            $scope.testListLogs = data.logs;
-        }).error(function(err){
+            $scope.testListDataJSON = JSON.stringify(response.data.data[0], null, '\t');
+            $scope.testListLogs = response.data.logs;
+        }, function(response){
             $scope.testListOver = true;
-            $scope.testListDataJSON = JSON.stringify(err, null, '\t');
-            $scope.testListLogs = null;
+            $scope.testListDataJSON = 'request failed, response ' + response.status + '\r\n' + response.data
+            $scope.testListLogs = '';
         });
     };
     $scope.testContent = function() {
       $scope.testContentDataJSON = 'loading';
       $scope.testContentLogs = null;
-        $http.post('/suapi/testContent', $scope.searcher).success(function(data) {
+        $http.post('/suapi/testContent', $scope.searcher).then(function(data) {
             $scope.testContentOver = true;
             $scope.testContentDataJSON = data.data;
             $scope.testContentLogs = data.logs;
-        }).error(function(err){
+        }, function(err){
             $scope.testContentOver = true;
-            $scope.testContentDataJSON = JSON.stringify(err, null, '\t');
-            $scope.testContentLogs = null;
+            $scope.testContentDataJSON = 'request failed, response ' + response.status + '\r\n' + response.data
+            $scope.testContentLogs = '';
         });
     };
     $scope.save = function() {

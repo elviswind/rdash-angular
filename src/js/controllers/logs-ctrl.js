@@ -9,7 +9,7 @@ function LogsCtrl($scope, $http, util) {
             $scope.logs = null;
             $http.get('/suapi/logs/' + logtype).success(function(data) {
                 for (var i = 0; i < data.length; i++) {
-                    data[i].date = moment(data[i].createDate).format('MMMM Do YYYY, h:mm:ss a');;
+                    data[i].date = moment(data[i].createDate).format('YYYY-MM-DD HH:mm:ss');
                 }
                 $scope.logs = data;
             });

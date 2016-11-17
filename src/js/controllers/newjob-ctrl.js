@@ -55,10 +55,10 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
     $scope.testContent = function() {
       $scope.testContentDataJSON = 'loading';
       $scope.testContentLogs = null;
-        $http.post('/suapi/testContent', $scope.searcher).then(function(data) {
+        $http.post('/suapi/testContent', $scope.searcher).then(function(response) {
             $scope.testContentOver = true;
-            $scope.testContentDataJSON = data.data;
-            $scope.testContentLogs = data.logs;
+            $scope.testContentDataJSON = response.data.data;
+            $scope.testContentLogs = response.data.logs;
         }, function(err){
             $scope.testContentOver = true;
             $scope.testContentDataJSON = 'request failed, response ' + response.status + '\r\n' + response.data

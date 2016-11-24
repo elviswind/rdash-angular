@@ -141,8 +141,9 @@
                 <a class="btn btn-default btn-lg" ng-click="testList()">test</a>
             </div>
         </div>
-        <div class="row" ng-show="testListOver">
-            <pre class="col-sm-offset-2 col-sm-9">{{testListDataJSON}}
+        <div class="row" ng-show="testListStatus">
+            <pre class="col-sm-offset-2 col-sm-9">{{testListStatus}}
+{{testListDataJSON}}
 {{testListLogs}}</pre>
         </div>
         <div class="form-group">
@@ -157,8 +158,9 @@
                 <a class="btn btn-default btn-lg" ng-click="testContent()">test</a>
             </div>
         </div>
-        <div class="row" ng-show="testContentOver">
-            <pre class="col-sm-offset-2 col-sm-9">{{testContentDataJSON}}
+        <div class="row" ng-show="testContentStatus">
+            <pre class="col-sm-offset-2 col-sm-9">{{testContentStatus}}
+{{testContentDataJSON}}
 {{testContentLogs}}</pre>
         </div>
         <div class="form-group">

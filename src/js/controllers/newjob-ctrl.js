@@ -34,30 +34,30 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         });
     };
 
-    $scope.testListOver = false;
-    $scope.testContentOver = false;
+    $scope.testListStatus = '';
+    $scope.testContentStatus = '';
     $scope.testList = function() {
-        $scope.testListDataJSON = 'loading';
+        $scope.testListStatus = 'loading';
         $scope.testListLogs = null;
         $http.post('/suapi/testList', $scope.searcher).then(function(response) {
-            $scope.testListOver = true;
+            $scope.testListStatus = 'done';
             $scope.testListDataJSON = JSON.stringify(response.data.data[0], null, '\t');
             $scope.testListLogs = response.data.logs;
         }, function(response){
-            $scope.testListOver = true;
+            $scope.testListStatus = 'done';
             $scope.testListDataJSON = 'request failed, response ' + response.status + '\r\n' + response.data
             $scope.testListLogs = '';
         });
     };
     $scope.testContent = function() {
-      $scope.testContentDataJSON = 'loading';
+      $scope.testContentStatus = 'loading';
       $scope.testContentLogs = null;
         $http.post('/suapi/testContent', $scope.searcher).then(function(response) {
-            $scope.testContentOver = true;
+            $scope.testContentStatus = 'done';
             $scope.testContentDataJSON = response.data.data;
             $scope.testContentLogs = response.data.logs;
         }, function(response){
-            $scope.testContentOver = true;
+            $scope.testContentStatus = 'done';
             $scope.testContentDataJSON = 'request failed, response ' + response.status + '\r\n' + response.data
             $scope.testContentLogs = '';
         });

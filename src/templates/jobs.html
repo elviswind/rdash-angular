@@ -9,7 +9,10 @@
             <table class="table table-striped">
                 <tbody>
                     <tr ng-repeat="job in jobs">
-                        <td><a href="/viewer/{{ job.name }}" target="_blank">{{job.name}}</a></td>
+                        <td><a href="/viewer/{{ job.name }}" target="_blank">{{job.name}} </a>
+                            &nbsp;&nbsp;<a class="nodec" href="javascript:void(0)" ng-click="editjob(job.content)">
+                              <span class="fa fa-edit"></span></a>
+                        </td>
                         <td>{{job.lastStartTxt}}运行</td>
                         <td>{{job.lastEndTxt}}结束 </td>
                         <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}</td>

@@ -38,6 +38,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
     $scope.testContentStatus = '';
     $scope.testList = function() {
         $scope.testListStatus = 'loading';
+        $scope.testListDataJSON = '';
         $scope.testListLogs = null;
         $http.post('/suapi/testList', $scope.searcher).then(function(response) {
             $scope.testListStatus = 'done';
@@ -51,6 +52,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
     };
     $scope.testContent = function() {
       $scope.testContentStatus = 'loading';
+      $scope.testContentDataJSON = '';
       $scope.testContentLogs = null;
         $http.post('/suapi/testContent', $scope.searcher).then(function(response) {
             $scope.testContentStatus = 'done';

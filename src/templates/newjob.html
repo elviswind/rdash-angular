@@ -34,17 +34,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="listHeaders" class="col-sm-2 control-label">list headers</label>
+            <label for="headers" class="col-sm-2 control-label">headers</label>
 
-            <div class="col-sm-9">
-                <textarea class="form-control" name="listHeaders" ng-model="searcher.listHeaders" rows="3"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="detailHeaders" class="col-sm-2 control-label">detail headers</label>
-
-            <div class="col-sm-9">
-                <textarea class="form-control" name="detailHeaders" ng-model="searcher.detailHeaders" rows="3"></textarea>
+            <div class="smallace col-sm-9">
+                <div ui-ace="{mode: 'json'}" ng-model="searcher.listHeaders"></div>
             </div>
         </div>
         <div class="form-group">

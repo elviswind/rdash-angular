@@ -9,7 +9,7 @@ function JobsCtrl($scope, $http, $location, util) {
         $http.get('/suapi/jobs').success(function(data) {
             for (var i = 0; i < data.length; i++) {
                 data[i].activeClass = data[i].active ? "active" : "";
-                data[i].activeText = data[i].active ? "运行中" : "未运行";
+                data[i].activeText = data[i].active ? "ON" : "OFF";
             }
             $scope.jobs = data;
             util.allJobs = data;
@@ -19,7 +19,11 @@ function JobsCtrl($scope, $http, $location, util) {
     $scope.RefreshJobs();
 
     $scope.editjob = function(x) {
-        util.current.job = JSON.parse(x);
+        var job = JSON.parse(x);
+        try {
+            job.listHeaders = JSON.stringify(JSON.parse(job.listHeaders), null, 4);
+        } catch(e){}
+        util.current.job = job;
         $location.url('/job/edit');
     };
     $scope.activejob = function(job) {

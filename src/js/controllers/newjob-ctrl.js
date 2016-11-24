@@ -21,11 +21,8 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
         $http.post('/suapi/step1', {
             listReq: $scope.chromeInfo
         }).success(function(data) {
-            data.listHeaders = JSON.stringify(data.headers);
+            data.listHeaders = JSON.stringify(data.headers, null, 4);
             if (!data.maxPageScript) data.maxPageScript = '1';
-            delete data.headers['Referer'];
-            delete data.headers['referer'];
-            data.detailHeaders = JSON.stringify(data.headers);
             data.listUrlFormat = data.url;
             delete data.headers;
             delete data.url;
@@ -59,7 +56,7 @@ function NewJobCtrl($scope, $http, $stateParams, util) {
             $scope.testContentOver = true;
             $scope.testContentDataJSON = response.data.data;
             $scope.testContentLogs = response.data.logs;
-        }, function(err){
+        }, function(response){
             $scope.testContentOver = true;
             $scope.testContentDataJSON = 'request failed, response ' + response.status + '\r\n' + response.data
             $scope.testContentLogs = '';

@@ -16,16 +16,16 @@
                         <td>{{job.currentpage}}/{{job.maxpage}}</td>
                         <td>
                             <button class="btn btn-xs btn-primary {{job.activeClass}}" ng-click="activejob(job)">{{job.activeText}}</button>
+                            <button class="btn btn-xs btn-primary btn-danger" ng-click="startjob(job.name)">Run</button>
                             <div class="btn-group" uib-dropdown is-open="status.isopen">
                                 <button id="single-button" type="button" class="btn btn-xs btn-default" uib-dropdown-toggle ng-disabled="disabled">
-                                    操作
+                                    More
                                     <span class="caret"></span>
                                 </button>
                                 <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="editjob(job.content)">编辑</a></li>
-                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="startjob(job.name)">运行</a></li>
-                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="resetjob(job.name)">重置</a></li>
-                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="deletejob(job.name)">删除</a></li>
+                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="editjob(job.content)">Edit</a></li>
+                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="resetjob(job.name)">Empty</a></li>
+                                    <li role="menuitem"><a href="javascript:void(0)" ng-click="deletejob(job.name)">Delete</a></li>
                                 </ul>
                             </div>
                         </td>

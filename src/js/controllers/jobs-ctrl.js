@@ -9,7 +9,7 @@ function JobsCtrl($scope, $http, $location, util) {
         $http.get('/suapi/jobs').success(function(data) {
             for (var i = 0; i < data.length; i++) {
                 data[i].activeClass = data[i].active ? "active" : "";
-                data[i].activeText = data[i].active ? "ON" : "OFF";
+                data[i].activeText = data[i].active ? "on" : "off";
             }
             $scope.jobs = data;
             util.allJobs = data;

@@ -15,8 +15,10 @@
                         <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}</td>
                         <td>{{job.currentpage}}/{{job.maxpage}}</td>
                         <td>
-                            <button class="btn btn-xs btn-primary {{job.activeClass}}" ng-click="activejob(job)">{{job.activeText}}</button>
-                            <button class="btn btn-xs btn-primary btn-danger" ng-click="startjob(job.name)">Run</button>
+                            <button class="btn btn-xs {{job.activeClass}}" ng-click="activejob(job)">
+                              <span class="fa fa-toggle-{{job.activeText}}"></span>
+                            </button>
+                            <button class="btn btn-xs btn-primary" ng-click="startjob(job.name)">Run</button>
                             <div class="btn-group" uib-dropdown is-open="status.isopen">
                                 <button id="single-button" type="button" class="btn btn-xs btn-default" uib-dropdown-toggle ng-disabled="disabled">
                                     <span class="fa fa-ellipsis-h"></span>

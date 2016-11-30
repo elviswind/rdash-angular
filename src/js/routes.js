@@ -7,7 +7,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/strings');
+        $urlRouterProvider.otherwise('/viewers');
 
         // Application routes
         $stateProvider

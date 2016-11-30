@@ -9,10 +9,10 @@
                 <tbody>
                     <tr ng-repeat="v in viewers">
                         <td><a href="/d/{{v.name}}" target="_blank">{{v.name}}</a></td>
-                        <td>{{v.sql}}</td>
+                        <td class="shortcode">{{v.sql}}</td>
                         <td>
-                            <a class="btn btn-sm btn-default" ng-click="editItem(v)">编辑</a>
-                            <a class="btn btn-sm btn-danger" ng-click="deleteItem(v)">删除</a>
+                            <a class="btn btn-xs btn-default" ng-click="editItem(v)">编辑</a>
+                            <a class="btn btn-xs btn-danger" ng-click="deleteItem(v)">删除</a>
                         </td>
                     </tr>
                 </tbody>

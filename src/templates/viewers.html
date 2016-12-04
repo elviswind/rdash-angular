@@ -7,7 +7,7 @@
             <rd-loading ng-show="!viewers"></rd-loading>
             <table class="table table-striped">
                 <tbody>
-                    <tr ng-repeat="v in viewers">
+                    <tr class="viewer{{v.active}}" ng-repeat="v in viewers">
                         <td><a href="/d/{{v.name}}" target="_blank">{{v.name}}</a></td>
                         <td class="shortcode">{{v.sql}}</td>
                         <td>

@@ -13,8 +13,14 @@
                             &nbsp;&nbsp;<a class="nodec" href="javascript:void(0)" ng-click="editjob(job.content)">
                               <span class="fa fa-edit"></span></a>
                         </td>
-                        <td>{{job.lastStartTxt}}运行</td>
-                        <td>{{job.lastEndTxt}}结束 </td>
+                        <td>
+                          <span ng-show="job.lastStartTxt">{{job.lastStartTxt}}运行</span>
+                          <span ng-show="!job.lastStartTxt">----</span>
+                        </td>
+                        <td>
+                          <span ng-show="job.lastEndTxt">{{job.lastEndTxt}}结束</span>
+                          <span ng-show="!job.lastEndTxt">----</span>
+                        </td>
                         <td>{{job.badcount}}/{{job.contentcount}}/{{job.totalcount}}</td>
                         <td>{{job.currentpage}}/{{job.maxpage}}</td>
                         <td>

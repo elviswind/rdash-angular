@@ -19,9 +19,9 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}', //src\components\tinymce-dist\plugins
-    tinymce_plugins: 'src/components/tinymce-dist/plugins/**/*.*',
-    tinymce_skins: 'src/components/tinymce-dist/skins/**/*.*',
-    tinymce_themes: 'src/components/tinymce-dist/themes/**/*.*',
+    tinymce_plugins: 'src/components/tinymce/plugins/**/*.*',
+    tinymce_skins: 'src/components/tinymce/skins/**/*.*',
+    tinymce_themes: 'src/components/tinymce/themes/**/*.*',
 };
 
 var copyPath = "../main/ssite/public/"

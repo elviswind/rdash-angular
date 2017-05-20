@@ -28,8 +28,8 @@ var getItemsExample = function(body, cheerio, logs, params) {
         /******* try get thumbnail ******/
         var thumbNode = a.find('img');
         if(thumbNode && thumbNode.length == 1){
-            item.thumb = thumbNode.attr('src');
-            a = n.find('a').eq(1);
+            item.thumb = url.resolve(params.from, thumbNode.attr('src'));
+            a = n.find('a').eq(0);
         }
         /********************************/
 

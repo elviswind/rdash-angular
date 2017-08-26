@@ -20,6 +20,20 @@ var getItemsExample = function(body, cheerio, logs, params) {
         logs.push("[" + i + "] " + link.attr('href') + " " + link.html())
         logs.push($.html(link));
     }
+	
+	var pagers = $('.pages a');
+    var pager = null;
+    for(var i = 0;i<pagers.length;i++){
+        if(pagers.eq(i).text().replace(/\s*/g, '') == "下一页"){
+            pager = pagers.eq(i);
+            break;
+        }
+    }
+    if(pager){
+        params.nextPageUrl = url.resolve(params.from, pager.attr('href'));
+		logs.push('found next page ' + params.nextPageUrl);
+    }
+	
     for (var i = 0; i < listNodes.length; i++) {
         var item = {};
         var n = $(listNodes[i]);
@@ -39,9 +53,10 @@ var getItemsExample = function(body, cheerio, logs, params) {
         }
         item.title = a.text().replace(/^\s+|\s+$/g, '');
         item.link = a.attr('href').replace(/&amp;/g, '&');
-        if (item.link) {
-            if (item.link.match(/\d+/)) {
-                item.tid = item.link.match(/\d+/)[0];
+		if (item.link) {
+            var tids = item.link.match(/(\d+)\D*$/);
+            if (tids && tids.length > 1) {
+                item.tid = tids[1];
             } else {
                 item.tid = 0;
             }

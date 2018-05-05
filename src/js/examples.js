@@ -79,7 +79,9 @@ var getContentExample = function($, item, extraData, logs) {
     return contentNode.html();
 };
 
-var monitorActionExample = function($, monitor, logs, plugin) {
-    var success = false;
-    callback(success, logs);
-};
+var monitorActionExample = function(body, cheerio, monitor, logs, plugin) {
+    var $ = cheerio.load(body, {
+        decodeEntities: false
+    });
+    return true;
+}
